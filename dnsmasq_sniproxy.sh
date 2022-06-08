@@ -231,19 +231,19 @@ install_dnsmasq(){
             error_detect_depends "yum -y install make"
             error_detect_depends "yum -y install gcc-c++"
             cd /tmp/
-            if [ -e dnsmasq-2.80 ]; then
-                rm -rf dnsmasq-2.80
+            if [ -e dnsmasq-2.86 ]; then
+                rm -rf dnsmasq-2.86
             fi
-            download dnsmasq-2.80.tar.gz http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.80.tar.gz
-            tar -zxf dnsmasq-2.80.tar.gz
+            download dnsmasq-2.86.tar.gz https://thekelleys.org.uk/dnsmasq/dnsmasq-2.86.tar.gz
+            tar -zxf dnsmasq-2.86.tar.gz
             cd dnsmasq-2.80
             make
             if [ $? -ne 0 ]; then
                 echo -e "[${red}Error${plain}] dnsmasq upgrade failed."
-                rm -rf /tmp/dnsmasq-2.80 /tmp/dnsmasq-2.80.tar.gz
+                rm -rf /tmp/dnsmasq-2.86 /tmp/dnsmasq-2.86.tar.gz
                 exit 1
             fi
-            yes|cp -f /tmp/dnsmasq-2.80/src/dnsmasq /usr/sbin/dnsmasq && chmod 755 /usr/sbin/dnsmasq
+            yes|cp -f /tmp/dnsmasq-2.86/src/dnsmasq /usr/sbin/dnsmasq && chmod 755 /usr/sbin/dnsmasq
         fi
     elif check_sys packageManager apt; then
         error_detect_depends "apt-get -y install dnsmasq"
@@ -323,9 +323,9 @@ install_sniproxy(){
     elif check_sys packageManager apt; then
         if [[ ${fastmode} = "1" ]]; then
             if [[ ${bit} = "x86_64" ]]; then
-                download /tmp/sniproxy_0.6.0_amd64.deb https://github.com/myxuchangbin/dnsmasq_sniproxy_install/raw/master/sniproxy/sniproxy_0.6.0_amd64.deb
-                error_detect_depends "dpkg -i --no-debsig /tmp/sniproxy_0.6.0_amd64.deb"
-                rm -rf /tmp/sniproxy_0.6.0_amd64.deb
+                download /tmp/sniproxy_0.6.0-2_amd64.deb http://ftp.de.debian.org/debian/pool/main/s/sniproxy/sniproxy_0.6.0-2_amd64.deb
+                error_detect_depends "dpkg -i --no-debsig /tmp/sniproxy_0.6.0-2_amd64.deb"
+                rm -rf /tmp/sniproxy_0.6.0-2_amd64.deb
             elif [[ ${bit} = "i386" ]]; then
                 download /tmp/sniproxy_0.6.0_i386.deb https://github.com/myxuchangbin/dnsmasq_sniproxy_install/raw/master/sniproxy/sniproxy_0.6.0_i386.deb
                 error_detect_depends "dpkg -i --no-debsig /tmp/sniproxy_0.6.0_i386.deb"
