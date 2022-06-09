@@ -583,20 +583,17 @@ if [[ $# = 1 ]];then
         -u|--uninstall)
         hello
         echo -e "${yellow}正在执行卸载Dnsmasq和SNI Proxy.${plain}"
-        confirm
         undnsmasq
         unsniproxy
         ;;
         -ud|--undnsmasq)
         hello
         echo -e "${yellow}正在执行卸载Dnsmasq.${plain}"
-        confirm
         undnsmasq
         ;;
         -us|--unsniproxy)
         hello
         echo -e "${yellow}正在执行卸载SNI Proxy.${plain}"
-        confirm
         unsniproxy
         ;;
         -h|--help|*)
