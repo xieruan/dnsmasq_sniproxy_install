@@ -341,10 +341,10 @@ install_sniproxy(){
             else
                 echo -e "${red}暂不支持${bit}内核，请使用编译模式安装！${plain}" && exit 1
             fi
-        else
-            ./autogen.sh && dpkg-buildpackage
-            error_detect_depends "dpkg -i --no-debsig ../sniproxy_*.deb"
-            rm -rf /tmp/sniproxy*.deb
+      #  else
+       #     ./autogen.sh && dpkg-buildpackage
+        #    error_detect_depends "dpkg -i --no-debsig ../sniproxy_*.deb"
+         #   rm -rf /tmp/sniproxy*.deb
         fi  
         download /etc/init.d/sniproxy https://raw.githubusercontent.com/dlundquist/sniproxy/master/debian/init.d && chmod +x /etc/init.d/sniproxy
         download /etc/default/sniproxy https://raw.githubusercontent.com/myxuchangbin/dnsmasq_sniproxy_install/master/sniproxy.default
