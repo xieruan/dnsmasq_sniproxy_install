@@ -334,6 +334,10 @@ install_sniproxy(){
                  download /tmp/sniproxy_0.6.0-2_arm64.deb http://ftp.de.debian.org/debian/pool/main/s/sniproxy/sniproxy_0.6.0-2_arm64.deb
                  error_detect_depends "dpkg -i --no-debsig /tmp/sniproxy_0.6.0-2_arm64.deb"
                  rm -rf /tmp/sniproxy_0.6.0-2_arm64.deb
+            elif [[ ${bit} = "arm64" ]]; then
+                 download /tmp/sniproxy_0.6.0-2_arm64.deb http://ftp.de.debian.org/debian/pool/main/s/sniproxy/sniproxy_0.6.0-2_arm64.deb
+                 error_detect_depends "dpkg -i --no-debsig /tmp/sniproxy_0.6.0-2_arm64.deb"
+                 rm -rf /tmp/sniproxy_0.6.0-2_arm64.deb
             else
                 echo -e "${red}暂不支持${bit}内核，请使用编译模式安装！${plain}" && exit 1
             fi
