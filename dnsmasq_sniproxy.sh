@@ -323,7 +323,7 @@ install_sniproxy(){
     elif check_sys packageManager apt; then
         if [[ ${fastmode} = "1" ]]; then
             if [[ ${bit} = "x86_64" ]]; then
-                wget -O /tmp/sniproxy_0.6.0-2_amd64.deb http://ftp.de.debian.org/debian/pool/main/s/sniproxy/sniproxy_0.6.0-2_amd64.deb
+                download /tmp/sniproxy_0.6.0-2_amd64.deb http://ftp.de.debian.org/debian/pool/main/s/sniproxy/sniproxy_0.6.0-2_amd64.deb
                 error_detect_depends "dpkg -i --no-debsig /tmp/sniproxy_0.6.0-2_amd64.deb"
                 rm -rf /tmp/sniproxy_0.6.0-2_amd64.deb
             elif [[ ${bit} = "i386" ]]; then
