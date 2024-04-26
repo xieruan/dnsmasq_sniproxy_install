@@ -362,3 +362,4 @@ oaistatic.com
 files.oaiusercontent.com
 ios.chat.openai.com
 api.openai.com
+chat.openai.com
